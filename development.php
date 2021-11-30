@@ -26,7 +26,7 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
+if (!defined('WPINC')) {
 	die;
 }
 
@@ -35,14 +35,26 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'DEVELOPMENT_VERSION', '1.0.0' );
+define('DEVELOPMENT_VERSION', '1.0.0');
+require 'vendor/autoload.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/user-name/repo-name/',
+	__FILE__,
+	'unique-plugin-or-theme-slug'
+);
 
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('stable-branch-name');
+
+//Optional: If you're using a private repository, specify the access token like this:
+$myUpdateChecker->setAuthentication('your-token-here');
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-development-activator.php
  */
-function activate_development() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-development-activator.php';
+function activate_development()
+{
+	require_once plugin_dir_path(__FILE__) . 'includes/class-development-activator.php';
 	Development_Activator::activate();
 }
 
@@ -50,19 +62,20 @@ function activate_development() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-development-deactivator.php
  */
-function deactivate_development() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-development-deactivator.php';
+function deactivate_development()
+{
+	require_once plugin_dir_path(__FILE__) . 'includes/class-development-deactivator.php';
 	Development_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_development' );
-register_deactivation_hook( __FILE__, 'deactivate_development' );
+register_activation_hook(__FILE__, 'activate_development');
+register_deactivation_hook(__FILE__, 'deactivate_development');
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-development.php';
+require plugin_dir_path(__FILE__) . 'includes/class-development.php';
 
 /**
  * Begins execution of the plugin.
@@ -73,10 +86,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-development.php';
  *
  * @since    1.0.0
  */
-function run_development() {
+function run_development()
+{
 
 	$plugin = new Development();
 	$plugin->run();
-
 }
 run_development();
