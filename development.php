@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              https://www.yukdiorder.com/
- * @since             1.0.0
+ * @since             1.0.1
  * @package           Development
  *
  * @wordpress-plugin
@@ -38,13 +38,13 @@ if (!defined('WPINC')) {
 define('DEVELOPMENT_VERSION', '1.0.0');
 require 'vendor/autoload.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://github.com/user-name/repo-name/',
+	'https://github.com/Muhwildanferdiansyah/development',
 	__FILE__,
-	'unique-plugin-or-theme-slug'
+	'development'
 );
 
 //Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('stable-branch-name');
+$myUpdateChecker->setBranch('main');
 
 //Optional: If you're using a private repository, specify the access token like this:
 $myUpdateChecker->setAuthentication('your-token-here');
