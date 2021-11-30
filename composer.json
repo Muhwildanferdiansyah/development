@@ -1,0 +1,16 @@
+{
+    "name": "yukdiorder/todolist",
+    "description": "todolist",
+    "autoload": {
+        "psr-4": {
+            "Yukdiorder\\Todolist\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "wildan",
+            "email": "wildanf.daftar@gmail.com"
+        }
+    ],
+    "require": {}
+}
