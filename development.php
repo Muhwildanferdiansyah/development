@@ -15,8 +15,8 @@
  * @wordpress-plugin
  * Plugin Name:       development
  * Plugin URI:        https://www.yukdiorder.com/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.1
+ * Description:       Catat pekerjaan harian 
+ * Version:           1.0.2
  * Author:            yukdiorder
  * Author URI:        https://www.yukdiorder.com/
  * License:           GPL-2.0+
